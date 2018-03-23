@@ -1,0 +1,43 @@
+img[alt]{
+	border: 5px solid blue;
+}
+img[src="img/logo.png"]{
+	width: 400px;
+}
+/* ^ = circunflejo */
+img[src^="img/"]{
+	width: 150px;
+}
+img[src$="png"]{
+	width: 250px;
+}
+img[src*="mg/"]{
+	width: 80px;
+}
+/*El carater indica que estos selectores estan separados por espacios*/*/
+article[class~="resaltado"]{
+	border: 1px dashed blue;
+
+}
+article[class~="archivo"]{
+	border: 1px dashed red;
+
+}
+article[class~="ingles"]{
+	border: 1px dashed green;
+
+}
+/*Es atributo class/id es una lista de valores separados por guiones*/
+article[class|="ingles"]{
+	text-align: center;
+
+}
+/*selector de secundarios.
+  seleccionar solamente las <p> que se encuentran inmediatamente despues del <div>*/
+div > p{ /*solo hijos directos del div en este caso*/
+	color: blue;
+}
+/*todos los elementos <p> seran seleccionados*/
+div p{
+	color: red;
+}
