@@ -14,7 +14,7 @@ img[src$="png"]{
 img[src*="mg/"]{
 	width: 80px;
 }
-/*El carater indica que estos selectores estan separados por espacios*/*/
+/*El carater indica que estos selectores estan separados por espacios*/
 article[class~="resaltado"]{
 	border: 1px dashed blue;
 
@@ -40,4 +40,37 @@ div > p{ /*solo hijos directos del div en este caso*/
 /*todos los elementos <p> seran seleccionados*/
 div p{
 	color: red;
+}
+/*seleccionar solo el elemento <p> que esta inmediatamente despues del elemento <h2> -
+hermano adyacente*/
+h2 + p{
+	color:green;
+}
+/*seleccionar todos los elementos <p> del elemento especificado -
+hermano general*/
+h2 ~ p {
+	color:gray;
+}
+/*poner en color rojo el texto de las secciones menos el id="referencias"*/
+#resumen,#experimento,#pruebas,#resultados,#concluciones{
+	color:tomato;
+}
+/*poner en color rosa el texto de las secciones menos el id=referencias*/
+section:not(#referencias){
+	color:hotpink;
+}
+li:nth-child(odd){/*Impares*/
+	color:green;
+}
+li:nth-child(even){/*pares*/
+	color:blue;
+}
+li:nth-child(5){/*el quinto elemento de la lista*/
+	color:red;
+}
+li:nth-last-child(1){/*ultimo elementa, cuenta de abajo hacia arriba*/
+	color:yellow;
+}
+p:first-line{
+	font-weight: bold;
 }
