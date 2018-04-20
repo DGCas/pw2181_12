@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Gato</title>
+</head>
+<body>
+	<p>Tiempo jugado <div id="tiempoJ"></div></p>
+	<table>
+		<tr>
+			<td><button  id = "btn1" onclick="ponMarca(1);paraWorker();iniciaWorker()"></button></td>
+			<td><button id = "btn2" onclick="ponMarca(2);paraWorker();iniciaWorker()"></button></td>
+			<td><button id = "btn3" onclick="ponMarca(3);paraWorker();iniciaWorker()"></button></td>
+		</tr>
+		<tr>
+			<td><button id = "btn4" onclick="ponMarca(4);paraWorker();iniciaWorker()"></button></td>
+			<td><button id = "btn5" onclick="ponMarca(5);paraWorker();iniciaWorker()"></button></td>
+			<td><button id = "btn6" onclick="ponMarca(6);paraWorker();iniciaWorker()"></button></td>
+		</tr>
+		<tr>
+			<td><button id = "btn7" onclick="ponMarca(7);paraWorker();iniciaWorker()"></button></td>
+			<td><button id = "btn8" onclick="ponMarca(8);paraWorker();iniciaWorker()"></button></td>
+			<td><button id = "btn9" onclick="ponMarca(9);paraWorker();iniciaWorker()"></button></td>
+		</tr>
+	</table>
+	<p>Tiempo de la partida <div id="tiempoP"></div></p>
+	<script>
+		var w1,w2;
+		function iniciaWorker(){
+			//preguntar si soporta wokers
+			if (typeof(Worker) != "undefined"){
+				if(typeof(w1) == "undefined"){				
+					w1 = new Worker("demoWorker.js")
+					w1.onmessage = function(event){
+						document.getElementById('tiempoJ').innerHTML=event.data;
+					}
+				}
+			}else{
+				alert("El navegador no soporta Workers");
+			}
+		}
+		function paraWorker(){
+			w1.terminate();
+			w1 = undefined;
+		}
+
+		var w3,w4;
+		iniciaWorker1();
+		function iniciaWorker1(){
+			//preguntar si soporta wokers
+			if (typeof(Worker) != "undefined"){
+				if(typeof(w3) == "undefined"){				
+					w3 = new Worker("demoWorker.js")
+					w3.onmessage = function(event){
+						document.getElementById('tiempoP').innerHTML=event.data;
+					}
+				}
+			}else{
+				alert("El navegador no soporta Workers");
+			}
+		}
+		function paraWorker1(){
+			w3.terminate();
+			w3 = undefined;
+		}
+		var turno1 = "X";
+		var turno2 = "O";
+		var bandera = 1;
+		function ponMarca(pos){
+		if (bandera%2!=0){
+			document.getElementById('btn'+pos).innerHTML=turno1;
+			bandera++;
+		}else{
+			document.getElementById('btn'+pos).innerHTML=turno2;
+			bandera++
+
+		}			
+		}
+
+
+	</script>
+</body>
+</html>
