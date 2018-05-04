@@ -4,7 +4,8 @@
   "description": "Usuarios aleatorios de randomuser.me",
   "main": "main.js",
   "scripts": {
-    "start":"electron .",
+    "start": "electron .",
+    "empaqueta": "electron-packager . ElectronUser --overwrite --asar",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,11 +18,16 @@
   "author": "Grande Castro Daniel",
   "license": "MIT",
   "dependencies": {
-    "electron": "^1.8.6"
+    "electron-packager": "^12.0.1",
+    "electron-require": "^0.3.0",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
+    "asar": "^0.14.3",
     "electro": "^2.1.1",
+    "electron": "^2.0.0",
     "electron-packager": "^12.0.1",
-    "electron-require": "^0.3.0"
+    "electron-require": "^0.3.0",
+    "jquery": "^3.3.1"
   }
 }

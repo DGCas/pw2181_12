@@ -18,6 +18,8 @@ function muestraPantallaPrincipal(){
 		protocol:'file',
 		slashes: true
 	}));
+	//clic derecho, inspeccionar en chrome
+	//pantallasPrincipal.webContents.openDevTools();
 	pantallasPrincipal.show();
 
 }
