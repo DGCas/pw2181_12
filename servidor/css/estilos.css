@@ -1,14 +1,15 @@
 body{
-    background: #BBBBBB;
-    font-size: 16px;
-    margin: 0 auto;
-    max-width: 1024px;
+	background: #BBBBBB;
+	font-size: 15px;
+	margin: 0 auto;
+	max-width: 1024px;
 }
-#frmUsuarios{
-	display:none;
+#frmUsuarios,#frmListado{
+	display: none;
 }
-#secInicio,#frmUsuarios{
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 450px;
+
+#secInicio, #frmUsuario{
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 450px;
 }
